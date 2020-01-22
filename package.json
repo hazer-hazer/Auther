@@ -1,0 +1,26 @@
+{
+  "name": "auther",
+  "version": "0.0.1",
+  "description": "Auther is a markup language for scenario writing",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hazer-hazer/auther.git"
+  },
+  "keywords": [
+    "auther",
+    "scenario",
+    "script",
+    "film",
+    "art"
+  ],
+  "author": "hazer_hazer",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/hazer-hazer/auther/issues"
+  },
+  "homepage": "https://github.com/hazer-hazer/auther#readme"
+}
