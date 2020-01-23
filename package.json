@@ -22,5 +22,8 @@
   "bugs": {
     "url": "https://github.com/hazer-hazer/auther/issues"
   },
-  "homepage": "https://github.com/hazer-hazer/auther#readme"
+  "homepage": "https://github.com/hazer-hazer/auther#readme",
+  "dependencies": {
+    "node-latex": "2.6.3"
+  }
 }
