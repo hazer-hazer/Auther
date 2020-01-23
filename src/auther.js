@@ -1,38 +1,32 @@
 const latex = require('./latex');
 
-const lex = input => {
-	var expressions = [];
-	var i = 0,
-		c = '';
+const convert = input => {
 
-	const peek = () => c = input[i];
-	const advance = () => c = input[++i];
-	const end = () => i >= input.length;
+	// Useless new lines
+	var unl = /\n+/gm;
+	input = input.replace(unl, '\n');
 
-	const isnwl = (s = c) => s === '\n';
+	const new_line = /\n/gm;
+	input = input.replace(new_line, '\\leavevmode\\\\');
 
+	// Dialogs
+	const dialog_begin = /(\w+|)(>)/gm,
+		  dialog_end = /(<)/gm;
 
-	const parse = () => {
-		if()else{
-			var text = '';
-			while(!is_punct(peek()) && !end())
-				text += peek();
-			return { type: 'text', val: text };
-		}
-	};
+	input = input.replace(dialog_begin, '\\begin{center}\\textbf{$1}');
+	input = input.replace(dialog_end, '\\end{center}');
 
-	while(!end())
-		expressions.push(parse());
+	// New scene
+	const new_scene = /\[(.*?)\]/gm;
+	input = input.replace(new_scene, '\\marginnote{$1}');
 
-	return expressions;
+	return input;
+}; 
+
+module.exports = (input, output, cb) => {
+	latex(convert(input), output, () => {
+		console.log('Latex -> PDF Converted');
+		if(typeof cb === 'function')
+			cb();
+	});
 };
-
-module.exports = lex;
-
-// module.exports = (input, output, cb) => {
-// 	latex(input, output, () => {
-// 		console.log('Latex -> PDF Converted');
-// 		if(typeof cb === 'function')
-// 			cb();
-// 	});
-// };

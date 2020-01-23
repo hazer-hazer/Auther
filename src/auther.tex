@@ -1,0 +1,34 @@
+\documentclass[a4paper,twoside,english]{article}
+
+\usepackage[T1]{fontenc}
+\usepackage{courier}
+\usepackage{titlesec}
+\usepackage{changepage}
+
+\makeatletter
+\special{papersize=\the\paperwidth,\the\paperheight}
+
+\usepackage{marginnote}
+\usepackage[top=1.5cm, bottom=1.5cm, outer=5cm, inner=2cm, heightrounded, marginparwidth=3cm, marginparsep=2.5cm]{geometry}
+
+\makeatother
+
+\newcommand{\newscene}[1]{#1}
+
+
+\begin{document}
+% Set marginnotes to left
+\reversemarginpar
+
+% Change sections heading
+\titleformat{\section}
+	{\fontfamily{pcr}}{\thesection}{1em}{}
+
+% Font family
+\fontfamily{pcr}\selectfont
+
+% Remove page numbering
+\pagenumbering{gobble}
+
+[SCRIPT]
+\end{document}
